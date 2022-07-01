@@ -33,7 +33,7 @@ function App() {
     <div>
       <h1>Our Wonderful Flight App</h1>
       <div className="searchBar">
-        <Dropdown setArrival={setArrival} setDeparture={setDeparture} direct={setDirect}/>
+        <Dropdown setArrival={setArrival} setDeparture={setDeparture} setDirect={setDirect}/>
       </div>
 
       <div className="resultsContainer">

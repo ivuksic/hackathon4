@@ -14,14 +14,14 @@ const FlightInfo = (props) => {
         <div className="direct">
           {(data.route.length > 1) ? (
             <>
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 transfer_within_a_station
               </span>
               <p>{data.route.length} transfer(s)</p>
             </>
           ) : (
             <>
-              <span class="material-symbols-outlined">double_arrow</span>
+              <span className="material-symbols-outlined">double_arrow</span>
               <p>direct</p>
             </>
           )}
@@ -32,7 +32,7 @@ const FlightInfo = (props) => {
         </div>
         <div className="duration">
           <p className="duration-text">duration</p>
-          <span class="material-symbols-outlined">trending_flat</span>
+          <span className="material-symbols-outlined">trending_flat</span>
           <p>{duration}</p>
         </div>
         <div className="arrival">
