@@ -7,7 +7,7 @@ function App() {
 
   const [flights, setFlights] = useState(null)
   const [loading, setLoading] = useState(true)
-  const url = "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106"
+  const url = "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106&limit=5"
     
   const fetchData = async () => {
     const resp = await fetch(url);
@@ -25,7 +25,9 @@ function App() {
     <div>
       <h1>Our Wonderful Flight App</h1>
       {loading && <h2>Loading...</h2>}
-      {flights && <FlightInfo data={flights[0]} />}
+      {flights && flights.map((flight, i) => (
+        <FlightInfo key={i} data={flight} />
+      ))}
     </div>
   );
 }
