@@ -5,7 +5,7 @@ import FlightInfo from './FlightInfo';
 
 function App() {
 
-  const [flights, setFlights] = useState([])
+  const [flights, setFlights] = useState(null)
   const [loading, setLoading] = useState(true)
   const url = "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106"
     

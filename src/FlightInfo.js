@@ -1,10 +1,8 @@
-const FlightInfo = ({ price, cityFrom, flyFrom, cityTo, flyTo, dTime, aTime }) => {
+const FlightInfo = (props) => {
+  const data = props.data;
 
-    console.log(price)
-    console.log(cityTo)
-    return (
-        <h1>FLightInfo</h1>
-    )
-
-}
+  console.log(data.price);
+  console.log(data.cityTo);
+  return <h1>FLightInfo</h1>;
+};
 export default FlightInfo;
