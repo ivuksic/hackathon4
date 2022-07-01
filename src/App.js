@@ -3,6 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import FlightInfo from "./FlightInfo";
 import Dropdown from "./Dropdown";
+import Results from "./Results";
 
 function App() {
   const [flights, setFlights] = useState(null);
@@ -10,22 +11,23 @@ function App() {
   const [arrival, setArrival] = useState("");
   const [departure, setDeparture] = useState("");
   const [direct, setDirect] = useState(false);
+  const [limit, setLimit] = useState(5);
 
   const Testurl =
     "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106";
 
   const fetchData = async () => {
-    const url = `https://api.skypicker.com/flights?fly_from=${departure}&fly_to=${arrival}&partner=data4youcbp202106&limit=5`;
+    const url = `https://api.skypicker.com/flights?fly_from=${departure}&fly_to=${arrival}&partner=data4youcbp202106&limit=${limit}`;
     const resp = await fetch(url);
     const data = await resp.json();
     setLoading(false);
-    setFlights(data.data);
+    setFlights(data.data.slice(limit - 5));
     console.log(data.data);
   };
 
   useEffect(() => {
     fetchData();
-  }, [arrival, departure]);
+  }, [arrival, departure, limit]);
 
   return (
     <div>
@@ -36,6 +38,9 @@ function App() {
           setDeparture={setDeparture}
           direct={setDirect}
         />
+      </div>
+      <div>
+        <Results limit={limit} setLimit={setLimit} />
       </div>
 
       <div className="resultsContainer">
