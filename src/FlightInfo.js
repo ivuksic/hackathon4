@@ -24,7 +24,12 @@ const FlightInfo = (props) => {
               <span className="material-symbols-outlined">
                 transfer_within_a_station
               </span>
-              <p>{data.route.length -1 } transfer(s)</p>
+              {(data.route.length -1 == 1) ?
+              <p>{data.route.length -1 } transfer</p>
+              :
+              <p>{data.route.length -1 } transfers</p>
+            }
+              
               <p className="transferairports">({transair})</p>
             </>
           ) : (

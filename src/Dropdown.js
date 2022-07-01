@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Dropdown({ setArrival, setDeparture, setDirect }) {
+function Dropdown({ setArrival, setDeparture, setDirect, setLimit }) {
   const [arr, setArr] = useState("");
   const [dep, setDep] = useState("");
   const [dir, setDir] = useState(false);
@@ -9,6 +9,7 @@ function Dropdown({ setArrival, setDeparture, setDirect }) {
     setArrival(arr);
     setDeparture(dep);
     setDirect(dir);
+    setLimit(0);
     console.log(dir);
   };
 

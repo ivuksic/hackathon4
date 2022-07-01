@@ -37,6 +37,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [arrival, departure, limit, direct]);
+
   return (
     <div className="maincontainer">
       <div className="title">
@@ -47,6 +48,7 @@ function App() {
           setArrival={setArrival}
           setDeparture={setDeparture}
           setDirect={setDirect}
+          setLimit={setLimit}
         />
       </div>
       {loading && <Loader />}
