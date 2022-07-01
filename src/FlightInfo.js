@@ -5,33 +5,47 @@ import { DateTime } from 'luxon';
 const FlightInfo = (props) => {
 
     const data = props.data
-    const duration = DateTime.fromMillis(data.duration.total * 1000).toFormat('hh:mm')
-    const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat('hh:mm')
-    const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat('hh:mm')
-    console.log(data.price)
-    console.log(data.cityTo)
-    console.log(DateTime.fromMillis(data.aTime * 1000).toFormat('hh:mm'))
+    const duration = DateTime.fromMillis(data.duration.total * 1000).toFormat("hh'h'mm'min'")
+    const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat('HH:mm')
+    const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat('HH:mm')
     return (
         <div className="flightinfo">
+            <div className="basicinfo">
             <div className="direct">
-                {data.has_airport_change}
+                {data.has_airport_change ?
+                <>
+                <span class="material-symbols-outlined">transfer_within_a_station</span>
+                <p>transfer</p>
+                </>
+                :
+                <>
+                <span class="material-symbols-outlined">double_arrow</span>
+                <p>direct</p>
+                </>
+                }
             </div>
             <div className="departure">
-                {dTime}
-                {data.cityFrom}
+                <p className="time">{dTime}</p>
+                <p>{data.cityFrom}</p>
             </div>
             <div className="duration">
-                {duration}
+                <p className="duration-text">duration</p>
+                <span class="material-symbols-outlined">
+                trending_flat
+                </span>
+                <p>{duration}</p>
             </div>
             <div className="arrival">
-                {aTime}
-                {data.cityTo}
+                <p className="time">{aTime}</p>
+                <p>{data.cityTo}</p>
+            </div>
             </div>
             <div className="price">
-                {data.price}
+                <p>€{data.price}</p>
             </div>
         </div>
     )
 
 }
 export default FlightInfo;
+

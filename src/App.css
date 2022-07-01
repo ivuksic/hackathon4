@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 html {
   box-sizing: border-box;
 }
@@ -12,8 +14,80 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 .flightinfo {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
 }
+
+.basicinfo {
+  display: flex;
+  flex-direction: row;
+  background-color: darkgrey;
+  border-radius: 0.8em;
+}
+
+.direct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 7em;
+}
+
+.departure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 7em;
+}
+
+.duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 7em;
+}
+
+.duration p {
+  line-height: 0;
+}
+
+.duration-text {
+  font-size: 0.8em;
+}
+
+.duration p {
+  line-height: 0;
+}
+
+.arrival {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 7em;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  background-color: lightgray;
+  border-radius: 0.8em;  
+}
+
+.price p {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.time {
+  font-weight: 600;
+}
+
