@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react'
+import FlightInfo from './FlightInfo';
 
 function App() {
+
+  const [flights, setFlights] = useState([])
+  const [loading, setLoading] = useState(true)
+  const url = "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106"
+    
+  const fetchData = async () => {
+    const resp = await fetch(url);
+    const data = await resp.json();
+    setLoading(false)
+    setFlights(data.data)
+    console.log(data.data[0])
+    }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Our Wonderful Flight App</h1>
+      {loading && <h2>Loading...</h2>}
+      {flights && <FlightInfo data={flights[0]} />}
     </div>
   );
 }
