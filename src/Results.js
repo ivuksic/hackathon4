@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-function Results({ limit, setLimit }) {
+function Results({ limit, setLimit, numResults }) {
   return (
     <div>
-      <button onClick={() => setLimit(limit === 5 ? limit : limit - 5)}>
+      <button disabled={limit === 0} onClick={() => setLimit(limit === 0 ? limit : limit - 5)}>
         Previous
       </button>
-      <button onClick={() => setLimit(limit + 5)}>Next</button>
+      <button disabled={limit + 5 >= numResults} onClick={() => setLimit(limit + 5)}>Next</button>
     </div>
   );
 }

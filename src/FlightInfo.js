@@ -7,6 +7,13 @@ const FlightInfo = (props) => {
   );
   const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat("HH:mm");
   const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat("HH:mm");
+  let transair = ""
+  if (data.route.length > 1) {
+    for (let i = 1; i < data.route.length; i++) {
+      transair += (data.route[i].flyFrom) + ", "
+    }
+    transair = transair.slice(0, -2);
+  }
 
   return (
     <div className="flightinfo">
@@ -14,14 +21,15 @@ const FlightInfo = (props) => {
         <div className="direct">
           {(data.route.length > 1) ? (
             <>
-              <span class="material-symbols-outlined">
+              <span className="material-symbols-outlined">
                 transfer_within_a_station
               </span>
-              <p>{data.route.length} transfer(s)</p>
+              <p>{data.route.length -1 } transfer(s)</p>
+              <p className="transferairports">({transair})</p>
             </>
           ) : (
             <>
-              <span class="material-symbols-outlined">double_arrow</span>
+              <span className="material-symbols-outlined">double_arrow</span>
               <p>direct</p>
             </>
           )}
@@ -32,7 +40,7 @@ const FlightInfo = (props) => {
         </div>
         <div className="duration">
           <p className="duration-text">duration</p>
-          <span class="material-symbols-outlined">trending_flat</span>
+          <span className="material-symbols-outlined">trending_flat</span>
           <p>{duration}</p>
         </div>
         <div className="arrival">

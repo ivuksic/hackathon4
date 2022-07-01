@@ -91,3 +91,18 @@ body {
   font-weight: 600;
 }
 
+.searchbox {
+  border: 1px solid black;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+label {
+  display: inline;
+}
+
+select {
+  display: inline;
+}
+
