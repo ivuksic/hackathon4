@@ -7,16 +7,17 @@ const FlightInfo = (props) => {
   );
   const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat("HH:mm");
   const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat("HH:mm");
+
   return (
     <div className="flightinfo">
       <div className="basicinfo">
         <div className="direct">
-          {data.has_airport_change ? (
+          {(data.route.length > 1) ? (
             <>
               <span class="material-symbols-outlined">
                 transfer_within_a_station
               </span>
-              <p>transfer</p>
+              <p>{data.route.length} transfer(s)</p>
             </>
           ) : (
             <>
