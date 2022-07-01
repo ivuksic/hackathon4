@@ -41,7 +41,7 @@ const FlightInfo = (props) => {
         <div className="duration">
           <p className="duration-text">duration</p>
           <span className="material-symbols-outlined">trending_flat</span>
-          <p>{duration}</p>
+          <p className="durTime">{duration}</p>
         </div>
         <div className="arrival">
           <p className="time">{aTime}</p>

@@ -45,7 +45,7 @@ function Dropdown({ setArrival, setDeparture, setDirect }) {
         <div className="search">
           Direct: 
         </div>
-        <div className="direct">
+        <div className="directBtn">
           <input type="checkbox" name="direct" onChange={() => setDir(!dir)}/>
         </div>
         <button onClick={clickHandler}>Search</button>

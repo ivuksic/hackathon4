@@ -15,7 +15,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background-image: url('https://cdn.pixabay.com/photo/2015/07/05/13/44/beach-832346_1280.jpg')
+  background-image: url('https://cdn.pixabay.com/photo/2015/07/05/13/44/beach-832346_1280.jpg');
+  background-attachment: fixed;
 }
 
 .flightinfo {
@@ -43,14 +44,21 @@ body {
 
 .direct p {
   line-height: 0;
+  font-size: 0.8em;
 }
 
+.arrival,
 .departure {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 7em;
+}
+
+.arrival,
+.departure p {
+  line-height: 0em;
 }
 
 .duration {
@@ -71,13 +79,6 @@ body {
 
 .duration p {
   line-height: 0;
-}
-
-.arrival {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 7em;
 }
 
 .price {
@@ -102,7 +103,7 @@ body {
   display: flex;
   flex-direction: row;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.75;
   border-radius: 2em;
   padding: 0.5em 1em;
   margin: 1em;
@@ -126,7 +127,7 @@ select {
   display: flex;
   flex-direction: row;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.75;
   border-radius: 2em;
   padding: 0 1em;
   margin: 1em;
@@ -136,9 +137,25 @@ select {
   display: flex;
   flex-direction: column;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.75;
   border-radius: 2em;
-  padding: 0 1em;
+  padding: 0 1em 1em 1em;
   margin: 1em;
 }
 
+.durTime {
+  font-size: 0.9em;
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  text-align: right;
+}
+
+.directBtn {
+  width: 2em;
+}

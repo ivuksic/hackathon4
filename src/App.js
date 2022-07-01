@@ -53,9 +53,11 @@ function App() {
         />
       </div>
       
+      {loading && <h2>Loading...</h2>}
 
-      <div className="resultsContainer">
-        {loading && <h2>Loading...</h2>}
+      {flights && 
+        <div className="resultsContainer">
+        
         {flights && 
           <h2>{numResults} flights found: ({limit + 1} to {((limit + 5) > numResults) ? 
             numResults
@@ -63,6 +65,7 @@ function App() {
             (limit + 5)})
             <Results limit={limit} setLimit={setLimit} numResults={numResults}/></h2>
         }
+
         {flights &&
           flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
         {warning && 
@@ -73,6 +76,8 @@ function App() {
 
         
       </div>
+      }
+      
     </div>
   );
 }
