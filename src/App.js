@@ -7,6 +7,7 @@ import Dropdown from "./Dropdown";
 function App() {
   const [flights, setFlights] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
   const url =
     "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106&limit=5";
 
@@ -33,6 +34,11 @@ function App() {
         {loading && <h2>Loading...</h2>}
         {flights &&
           flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
+
+        <button onClick={() => setOffset(offset === 0 ? offset : offset - 5)}>
+          Previous{" "}
+        </button>
+        <button onClick={() => setOffset(offset + 5)}>Next</button>
       </div>
     </div>
   );
