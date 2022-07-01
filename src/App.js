@@ -15,10 +15,8 @@ function App() {
   const [limit, setLimit] = useState(0);
   const [numResults, setNumResults] = useState(0);
   const [warning, setWarning] = useState(false);
-
   const Testurl =
     "https://api.skypicker.com/flights?fly_from=PRG&fly_to=VLC&partner=data4youcbp202106";
-
   const fetchData = async () => {
     let url = `https://api.skypicker.com/flights?fly_from=${departure}&fly_to=${arrival}&partner=data4youcbp202106&limit=5&offset=${limit}`;
     if (direct == true) {
@@ -26,7 +24,6 @@ function App() {
     }
     const resp = await fetch(url);
     const data = await resp.json();
-    console.log(data);
     setLoading(false);
     setFlights(data.data);
     setNumResults(data._results);
@@ -37,14 +34,14 @@ function App() {
     }
     console.log(data._results);
   };
-
   useEffect(() => {
     fetchData();
   }, [arrival, departure, limit, direct]);
-
   return (
-    <div>
-      <h1>Our Wonderful Flight App</h1>
+    <div className="maincontainer">
+      <div className="title">
+        <h1>Our Wonderful Flight App</h1>
+      </div>
       <div className="searchBar">
         <Dropdown
           setArrival={setArrival}
@@ -52,29 +49,31 @@ function App() {
           setDirect={setDirect}
         />
       </div>
-      <div>
-        <Results limit={limit} setLimit={setLimit} numResults={numResults} />
-      </div>
-
-      <div className="resultsContainer">
-        {loading && <Loader />}
-        {flights && (
-          <h2>
-            {numResults} flights found: ({limit + 1} to{" "}
-            {limit + 5 > numResults ? numResults : limit + 5})
-          </h2>
-        )}
-        {flights &&
-          flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
-        {warning && (
-          <h2>
-            Sorry, but no flights were found. Take a bus instead, or search
-            again!
-          </h2>
-        )}
-      </div>
+      {loading && <Loader />}
+      {flights && (
+        <div className="resultsContainer">
+          {flights && (
+            <h2>
+              {numResults} flights found: ({limit + 1} to{" "}
+              {limit + 5 > numResults ? numResults : limit + 5})
+              <Results
+                limit={limit}
+                setLimit={setLimit}
+                numResults={numResults}
+              />
+            </h2>
+          )}
+          {flights &&
+            flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
+          {warning && (
+            <h2>
+              Sorry, but no flights were found. Take a bus instead, or search
+              again!
+            </h2>
+          )}
+        </div>
+      )}
     </div>
   );
 }
-
 export default App;

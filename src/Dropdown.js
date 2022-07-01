@@ -15,8 +15,8 @@ function Dropdown({ setArrival, setDeparture, setDirect }) {
   return (
     <>
       <div className="searchbox">
+        <div className="search">Depart from:</div>
         <div className="departure">
-          <label htmlFor="depart">Depart: </label>
           <select
             name="Departure"
             id="depart"
@@ -30,8 +30,8 @@ function Dropdown({ setArrival, setDeparture, setDirect }) {
           </select>
         </div>
 
+        <div className="search">Arrive at:</div>
         <div className="arrival">
-          <label htmlFor="arrival">Arrive: </label>
           <select
             name="Arrivals"
             id="arrival"
@@ -45,8 +45,8 @@ function Dropdown({ setArrival, setDeparture, setDirect }) {
             <option value="ATH">Athens</option>
           </select>
         </div>
-        <div className="direct">
-          <label htmlFor="direct">Direct</label>
+        <div className="search">Direct:</div>
+        <div className="directBtn">
           <input type="checkbox" name="direct" onChange={() => setDir(!dir)} />
         </div>
         <button onClick={clickHandler}>Search</button>
