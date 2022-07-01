@@ -3,26 +3,45 @@ import { DateTime } from "luxon";
 const FlightInfo = (props) => {
   const data = props.data;
   const duration = DateTime.fromMillis(data.duration.total * 1000).toFormat(
-    "hh:mm"
+    "hh'h'mm'min'"
   );
-  const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat("hh:mm");
-  const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat("hh:mm");
-  console.log(data.price);
-  console.log(data.cityTo);
-  console.log(DateTime.fromMillis(data.aTime * 1000).toFormat("hh:mm"));
+  const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat("HH:mm");
+  const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat("HH:mm");
   return (
     <div className="flightinfo">
-      <div className="direct">{data.has_airport_change}</div>
-      <div className="departure">
-        {dTime}
-        {data.cityFrom}
+      <div className="basicinfo">
+        <div className="direct">
+          {data.has_airport_change ? (
+            <>
+              <span class="material-symbols-outlined">
+                transfer_within_a_station
+              </span>
+              <p>transfer</p>
+            </>
+          ) : (
+            <>
+              <span class="material-symbols-outlined">double_arrow</span>
+              <p>direct</p>
+            </>
+          )}
+        </div>
+        <div className="departure">
+          <p className="time">{dTime}</p>
+          <p>{data.cityFrom}</p>
+        </div>
+        <div className="duration">
+          <p className="duration-text">duration</p>
+          <span class="material-symbols-outlined">trending_flat</span>
+          <p>{duration}</p>
+        </div>
+        <div className="arrival">
+          <p className="time">{aTime}</p>
+          <p>{data.cityTo}</p>
+        </div>
       </div>
-      <div className="duration">{duration}</div>
-      <div className="arrival">
-        {aTime}
-        {data.cityTo}
+      <div className="price">
+        <p>€{data.price}</p>
       </div>
-      <div className="price">{data.price}</div>
     </div>
   );
 };
