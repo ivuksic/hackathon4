@@ -1,4 +1,3 @@
-// import Departure from "./Departure";
 import { useState } from "react";
 
 function Dropdown({ flights }) {
