@@ -20,9 +20,9 @@ function App() {
     const url = `https://api.skypicker.com/flights?fly_from=${departure}&fly_to=${arrival}&partner=data4youcbp202106&limit=${limit}`;
     const resp = await fetch(url);
     const data = await resp.json();
+    console.log(data);
     setLoading(false);
     setFlights(data.data.slice(limit - 5));
-    console.log(data.data);
   };
 
   useEffect(() => {

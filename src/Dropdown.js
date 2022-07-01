@@ -1,19 +1,22 @@
 import { useState } from "react";
 
 function Dropdown({ setArrival, setDeparture }) {
-
-  const [arr, setArr] = useState("")
-  const [dep, setDep] = useState("")
+  const [arr, setArr] = useState("");
+  const [dep, setDep] = useState("");
 
   const clickHandler = () => {
     setArrival(arr);
     setDeparture(dep);
-  }
+  };
 
   return (
     <>
       <div>
-        <select name="Departure" id="depart" onChange={(e) => setDep(e.target.value)}>
+        <select
+          name="Departure"
+          id="depart"
+          onChange={(e) => setDep(e.target.value)}
+        >
           Departure
           <option value="">Deaprture</option>
           <option value="PRG">Prague</option>
@@ -24,9 +27,13 @@ function Dropdown({ setArrival, setDeparture }) {
       </div>
 
       <div>
-        <select name="Arrivals" id="arrival" onChange={(e) => setArr(e.target.value)}>
+        <select
+          name="Arrivals"
+          id="arrival"
+          onChange={(e) => setArr(e.target.value)}
+        >
           Departure
-          <option value="">Destination</option>
+          <option value="">Surprise Me!</option>
           <option value="VLC">Valencia</option>
           <option value="BCN">Barcelona</option>
           <option value="MAD">Madrid</option>
