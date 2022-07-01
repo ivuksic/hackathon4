@@ -41,8 +41,10 @@ function App() {
   }, [arrival, departure, limit, direct]);
 
   return (
-    <div>
+    <div className="maincontainer">
+      <div className="title">
       <h1>Our Wonderful Flight App</h1>
+      </div>
       <div className="searchBar">
         <Dropdown
           setArrival={setArrival}
@@ -50,9 +52,7 @@ function App() {
           setDirect={setDirect}
         />
       </div>
-      <div>
-        <Results limit={limit} setLimit={setLimit} numResults={numResults}/>
-      </div>
+      
 
       <div className="resultsContainer">
         {loading && <h2>Loading...</h2>}
@@ -60,7 +60,8 @@ function App() {
           <h2>{numResults} flights found: ({limit + 1} to {((limit + 5) > numResults) ? 
             numResults
             :
-            (limit + 5)})</h2>
+            (limit + 5)})
+            <Results limit={limit} setLimit={setLimit} numResults={numResults}/></h2>
         }
         {flights &&
           flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
