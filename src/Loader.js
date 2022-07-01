@@ -5,8 +5,8 @@ const Loader = (props) => {
   return (
     <ContentLoader
       speed={2}
-      width={400}
-      height={160}
+      width={1000}
+      height={300}
       viewBox="0 0 400 160"
       backgroundColor="#d9d9d9"
       foregroundColor="#ededed"

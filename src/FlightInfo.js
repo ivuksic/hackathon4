@@ -3,7 +3,7 @@ import { DateTime } from "luxon";
 const FlightInfo = (props) => {
   const data = props.data;
   const duration = DateTime.fromMillis(data.duration.total * 1000).toFormat(
-    "hh'h'mm'min'"
+    "HH'h'mm'min'"
   );
   const aTime = DateTime.fromMillis(data.aTime * 1000).toFormat("HH:mm");
   const dTime = DateTime.fromMillis(data.dTime * 1000).toFormat("HH:mm");

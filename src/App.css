@@ -147,9 +147,10 @@ select {
   font-size: 0.9em;
 }
 
-.topbar {
+.topbox {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .search {
@@ -158,4 +159,9 @@ select {
 
 .directBtn {
   width: 2em;
+}
+
+.topBtns {
+  margin-left: 1em;
+  margin-top: 0.2em;
 }

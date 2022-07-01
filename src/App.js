@@ -53,15 +53,18 @@ function App() {
       {flights && (
         <div className="resultsContainer">
           {flights && (
+            <div className="topbox">
             <h2>
               {numResults} flights found: ({limit + 1} to{" "}
               {limit + 5 > numResults ? numResults : limit + 5})
+            </h2>
               <Results
                 limit={limit}
                 setLimit={setLimit}
                 numResults={numResults}
               />
-            </h2>
+            
+            </div>
           )}
           {flights &&
             flights.map((flight, i) => <FlightInfo key={i} data={flight} />)}
